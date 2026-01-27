@@ -221,7 +221,8 @@
 	// navigation
 	var OnePageNav = function() {
 		$(".smoothscroll[href^='#'], #ftco-nav ul li a[href^='#']").on('click', function(e) {
-		 	e.preventDefault();
+		 if ($(this).hasClass('external-link')) return; // Allow external links to work
+		 e.preventDefault();
 
 		 	var hash = this.hash,
 		 			navToggler = $('.navbar-toggler');
